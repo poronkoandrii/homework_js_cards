@@ -1,0 +1,44 @@
+@import "_reset";
+body {
+  background-color: rgb(156, 211, 221);
+}
+.mainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px 15px;
+}
+.cards {
+  margin: 15px;
+  width: 250px;
+  height: 350px;
+  position: relative;
+  perspective: 1000px;
+}
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  backface-visibility: hidden;
+  transition: 2s;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.front {
+  background-color: rgb(255, 255, 255);
+  color: red;
+}
+.back {
+  background-color: rgb(211, 142, 142);
+  transform: rotateY(180deg);
+}
+.cards:hover .front {
+  transform: rotateY(180deg);
+}
+.cards:hover .back {
+  transform: rotateY(360deg);
+}
