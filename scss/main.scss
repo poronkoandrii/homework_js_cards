@@ -1,4 +1,5 @@
 @import "_reset";
+$colorBase: rgb(163, 37, 37);
 body {
   background-color: rgb(156, 211, 221);
 }
@@ -6,13 +7,17 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 25px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .cards {
   margin: 15px;
   width: 250px;
-  height: 350px;
+  height: 372px;
   position: relative;
   perspective: 1000px;
+  cursor: pointer;
 }
 .front,
 .back {
@@ -23,22 +28,47 @@ body {
   top: 0;
   backface-visibility: hidden;
   transition: 2s;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .front {
   background-color: rgb(255, 255, 255);
-  color: red;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top {
+  align-self: flex-start;
+}
+.bot {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+.mid {
+  font-size: 100px;
 }
 .back {
-  background-color: rgb(211, 142, 142);
-  transform: rotateY(180deg);
+  background-image: url(../img/bg.png);
+  background-size: cover;
 }
 .cards:hover .front {
-  transform: rotateY(180deg);
+  transform: rotateY(360deg);
 }
 .cards:hover .back {
-  transform: rotateY(360deg);
+  transform: rotateY(180deg);
+}
+.red .mini,
+.red .mid {
+  color: $colorBase;
 }

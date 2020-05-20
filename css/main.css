@@ -23,11 +23,11 @@ table,
 table tr,
 table td {
   border: none;
-  color: #fff;
+  color: #000;
   font-family: "Lato", sans-serif;
-  font-size: 15px;
+  font-size: 50px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -76,15 +76,23 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 25px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .cards {
   margin: 15px;
   width: 250px;
-  height: 350px;
+  height: 372px;
   position: relative;
   -webkit-perspective: 1000px;
           perspective: 1000px;
+  cursor: pointer;
 }
 
 .front,
@@ -98,7 +106,7 @@ body {
           backface-visibility: hidden;
   -webkit-transition: 2s;
   transition: 2s;
-  border-radius: 10px;
+  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,26 +116,75 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .front {
   background-color: white;
-  color: red;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.top {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.bot {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.mid {
+  font-size: 100px;
 }
 
 .back {
-  background-color: #d38e8e;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  background-image: url(../img/bg.png);
+  background-size: cover;
 }
 
 .cards:hover .front {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+}
+
+.cards:hover .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
-.cards:hover .back {
-  -webkit-transform: rotateY(360deg);
-          transform: rotateY(360deg);
+.red .mini,
+.red .mid {
+  color: #a32525;
 }
 /*# sourceMappingURL=main.css.map */
